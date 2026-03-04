@@ -31,7 +31,7 @@ function adicionar(valor) {
     visor.value += valor;
 }
 
-function calcularParcial() {
+function calcularParcial() {clear
     const numero = parseFloat(numeroAtual);
 
     if (operador === "+") resultado += numero;
