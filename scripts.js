@@ -1,58 +1,75 @@
-const visor = document.getElementById("visor");
 
-let numeroAtual = "";
-let resultado = 0;
-let operador = null;
+let numero1 = "";
+let operador = "";
+let numero2 = "";
 
-function adicionar(valor) {
-
-    // Se for adicionar
-    if ("+-*/".includes(valor)) {
-
-    // Se ja existe numero digitado
-    if (numeroAtual !== "") {
-
-        if (operador === null) {
-            resultado = parseFloat(numeroAtual);    
-            } else {
-                calcularParcial();
-            }
-
-            numeroAtual = "";
-        }
-
-        operador = valor;
-        visor.value += valor;
-        return;
-    }
-
-    // Se for numero
-    numeroAtual += valor;
-    visor.value += valor;
-}
-
-function calcularParcial() {clear
-    const numero = parseFloat(numeroAtual);
-
-    if (operador === "+") resultado += numero;
-    if (operador === "-") resultado -= numero;
-    if (operador === "*") resultado *= numero;
-    if (operador === "/") resultado /= numero;
-}
-
-function calcular() {
-    if (numeroAtual === "" || operador === null) return;
-
-    calcularParcial();
-    visor.value = resultado;
-
-    numeroAtual = "";
-    operador = null;
+function limpar() {
+  document.getElementById("display").value = "";
 }
 
 function limpar() {
-    visor.value = "";
-    numeroAtual = "";
-    resultado = 0;
-    operador = null;
+    document.getElementById("display").value = "";
+    numero1 = "";
+    numero2 = "";
+    operador = "";
+}
+
+function adicionar(valor) {
+  document.getElementById("display").value += valor;
+}
+
+function adicionar(valor) {
+
+    if (valor === "+" || valor === "-" || valor === "*" || valor === "/") {
+        operador = valor;
+        document.getElementById("display").value += valor;
+    } else {
+
+        if (operador === "") {
+            numero1 += valor;
+        } else {
+            numero2 += valor;
+        }
+
+        document.getElementById("display").value += valor;
+    }
+}
+
+function calcular() {
+
+    numero1 = Number(numero1);
+    numero2 = Number(numero2);
+
+    let resultado;
+
+    if (operador === "+") {
+        resultado = numero1 + numero2;
+    }
+
+    if (operador === "-") {
+        resultado = numero1 - numero2;
+    }
+
+    if (operador === "*") {
+        resultado = numero1 * numero2;
+    }
+
+    if (operador === "/") {
+        resultado = numero1 / numero2;
+    }
+
+    document.getElementById("display").value = resultado;
+
+    numero1 = resultado;
+    numero2 = "";
+    operador = "";
+}
+
+function calcular() {
+  try {
+    const resultado = eval(document.getElementById("display").value);
+    document.getElementById("display").value = resultado;
+  } catch {
+    document.getElementById("display").value = "Erro";
+  }
 }

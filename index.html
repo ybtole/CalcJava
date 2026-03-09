@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Simples</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="box">
-    <h2>Calculadora</h2>
+  <div class="calculadora">
+    <input type="text" id="display" class="display" readonly>
 
-    <form class="boxcalculadora">
-        <input id="display" type="text" placeholder="0" disabled>
+    <div class="botoes">
+      <button class="numero" onclick="adicionar('7')">7</button>
+      <button class="numero" onclick="adicionar('8')">8</button>
+      <button class="numero" onclick="adicionar('9')">9</button>
+      <button class="operador" onclick="adicionar('/')">÷</button>
 
-        <div class="botoes">
-            <button type="button">7</button>
-            <button type="button">8</button>
-            <button type="button">9</button>
-            <button type="button" class="operador">+</button>
+      <button class="numero" onclick="adicionar('4')">4</button>
+      <button class="numero" onclick="adicionar('5')">5</button>
+      <button class="numero" onclick="adicionar('6')">6</button>
+      <button class="operador" onclick="adicionar('*')">×</button>
 
-            <button type="button">4</button>
-            <button type="button">5</button>
-            <button type="button">6</button>
-            <button type="button" class="operador">-</button>
+      <button class="numero" onclick="adicionar('1')">1</button>
+      <button class="numero" onclick="adicionar('2')">2</button>
+      <button class="numero" onclick="adicionar('3')">3</button>
+      <button class="operador" onclick="adicionar('-')">−</button>
 
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-            <button type="button" class="operador">*</button>
+      <button class="numero" onclick="adicionar('0')">0</button>
+      <button class="numero" onclick="adicionar('.')">.</button>
+      <button class="limpar" onclick="limpar()">C</button>
+      <button class="operador" onclick="adicionar('+')">+</button>
 
-            <button type="button" id="clear">C</button>
-            <button type="button">0</button>
-            <button type="button" id="igual">=</button>
-            <button type="button" class="operador">/</button>
-        </div>
-    </form>
-</div>
-<script>
-    
+      <button class="igual" onclick="calcular()">=</button>
+    </div>
+  </div>
 
-</script>
+  <script src="script.js"></script>
+
 </body>
+
 </html>
